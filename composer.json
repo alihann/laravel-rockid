@@ -1,0 +1,26 @@
+{
+    "name": "alihann/laravel-rockid",
+    "description": "Laravel package for id obfuscation using jenssegers/optimus.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "optimus", "rockid", "obfuscate", "ids", "encrypt", "decrypt"],
+    "authors": [
+        {
+            "name": "Ali Han",
+            "email": "le3han@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^5.5.9 || ^7.0",
+        "illuminate/console": "5.2.*",
+        "illuminate/support": "5.2.*",
+        "jenssegers/optimus": "~0.2",
+        "phpseclib/phpseclib": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alihann\\LaravelRockid\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
