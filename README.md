@@ -47,46 +47,46 @@ Id obfuscation for Laravel using [Optimus](https://github.com/jenssegers/optimus
 
 you can use ObfuscatesId trait to get the obfuscated id of the model in your views.
 
-    ```php
-    use Illuminate\Database\Eloquent\Model;
-    use Alihann\LaravalRockId\ObfuscatesId;
+```php
+use Illuminate\Database\Eloquent\Model;
+use Alihann\LaravalRockId\ObfuscatesId;
 
-    class User extends Model {
+class User extends Model {
 
-      use ObfuscatesId;
+  use ObfuscatesId;
 
-    }
-    ```
+}
+```
 now you have getId method in your model to generate an obfuscated id.
 
-    ```
-    <a href="user/{{ $user->getId() }}">Show user</a>
-    ```
+```
+<a href="user/{{ $user->getId() }}">Show user</a>
+```
 
 routes.php
 
-    ```php
-    Route::bind('user', function ($value) {
-        $id = Rockid::decode($value);
-        return \App\User::find($id);
-    });
+```php
+Route::bind('user', function ($value) {
+    $id = Rockid::decode($value);
+    return \App\User::find($id);
+});
 
-    Route::get('user/{user}', function ($user) {
-        return $user->getId();
-    });
-    ```
+Route::get('user/{user}', function ($user) {
+    return $user->getId();
+});
+```
 
 or in RouteServiceProvider class
 
-    ```php
-    public function boot(Router $router)
-    {
-        parent::boot($router);
+```php
+public function boot(Router $router)
+{
+    parent::boot($router);
 
-        $router->bind('user', function ($value) {
-            $id = app('rockid')->decode($value);
-            return \App\User::find($id);
-        });
-    }
-    ```
+    $router->bind('user', function ($value) {
+        $id = app('rockid')->decode($value);
+        return \App\User::find($id);
+    });
+}
+```
 
